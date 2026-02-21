@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – EduNova</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">🎓</div><span class="nav-logo-text">Edu<span>Nova</span></span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="subjects.html">Subjects</a></li><li><a href="doubts.html">Doubts</a></li><li><a href="notes.html">Notes</a></li><li><a href="blog.html" class="active">Blog</a></li><li><a href="team.html">Team</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a href="#" class="btn btn-ghost">Login</a><a href="#" class="btn btn-primary" data-modal="modal-signup">Join Free</a></div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">🏠 Home</a><a href="about.html">ℹ️ About</a><a href="subjects.html">📚 Subjects</a><a href="doubts.html">❓ Doubts</a><a href="notes.html">📝 Notes</a><a href="blog.html">📰 Blog</a><a href="team.html">👥 Team</a><a href="pricing.html">💎 Pricing</a><a href="contact.html">📬 Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb" style="justify-content:center"><a href="../index.html">Home</a> <span>›</span> <span class="current">Blog</span></div>
+  <div class="section-label">Articles & Guides</div>
+  <h1 class="section-title">EduNova <em>Blog</em></h1>
+  <p class="section-subtitle" style="text-align:center; margin:0 auto">Study tips, exam strategies, subject guides, and more from our educators.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-grid fade-in">
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">📐</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-blue">Mathematics</span><span class="card-tag tag-gold">Class 10</span></div>
+          <div class="blog-title">10 Tricks to Solve Quadratic Equations Faster in Board Exams</div>
+          <div class="blog-excerpt">Master the art of quick solving with shortcuts your teacher never told you. These techniques can save 10+ minutes in the exam hall.</div>
+          <div class="blog-footer"><span>By EduNova Expert</span><span>Jan 15, 2025 · 8 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">🔬</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-green">Biology</span><span class="card-tag tag-purple">Class 12</span></div>
+          <div class="blog-title">How to Remember All 64 Codons: The Ultimate Memory Hack</div>
+          <div class="blog-excerpt">Genetics feels impossible until you have the right memory strategy. This guide breaks it down into patterns your brain actually likes.</div>
+          <div class="blog-footer"><span>By Dr. Anita R.</span><span>Jan 10, 2025 · 12 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">📅</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-gold">Study Tips</span><span class="card-tag tag-blue">All Classes</span></div>
+          <div class="blog-title">The Perfect 30-Day Board Exam Revision Schedule</div>
+          <div class="blog-excerpt">With one month to go, here's the day-by-day revision plan that helped EduNova students score 95%+ last year.</div>
+          <div class="blog-footer"><span>By EduNova Team</span><span>Jan 5, 2025 · 15 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">⚗️</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-gold">Chemistry</span><span class="card-tag tag-purple">Class 12</span></div>
+          <div class="blog-title">Organic Chemistry Reaction Map: Master All Named Reactions</div>
+          <div class="blog-excerpt">A visual guide to every important named reaction in Class 12 Chemistry — from Cannizzaro to Sandmeyer in one connected flowchart.</div>
+          <div class="blog-footer"><span>By Prof. Rajesh K.</span><span>Dec 28, 2024 · 20 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">💻</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-blue">Computer Science</span><span class="card-tag tag-green">Class 11-12</span></div>
+          <div class="blog-title">Python for Beginners: Everything You Need for Class 11 CS</div>
+          <div class="blog-excerpt">Starting from scratch? This guide covers variables, loops, functions, and OOP — exactly as per the NCERT CS syllabus.</div>
+          <div class="blog-footer"><span>By Priya Mehta</span><span>Dec 20, 2024 · 25 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card" onclick="showToast('Opening article…','info')">
+        <div class="blog-img">📚</div>
+        <div class="blog-body">
+          <div class="blog-cats"><span class="card-tag tag-purple">English</span><span class="card-tag tag-gold">Writing Tips</span></div>
+          <div class="blog-title">How to Write a 10/10 Board Exam Essay: Structure + Examples</div>
+          <div class="blog-excerpt">The essay format that examiners love. Learn the introduction-body-conclusion framework with real examples from past board papers.</div>
+          <div class="blog-footer"><span>By EduNova Expert</span><span>Dec 15, 2024 · 10 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about"><a href="../index.html" class="nav-logo" style="justify-content:flex-start;"><div class="nav-logo-icon">🎓</div><span class="nav-logo-text">Edu<span>Nova</span></span></a><p>India's elegant education platform.</p></div>
+    <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a href="subjects.html">Subjects</a></li><li><a href="notes.html">Notes</a></li><li><a href="doubts.html">Doubts</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Support</div><ul class="footer-links"><li><a href="pricing.html">Pricing</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 EduNova.</span></div>
+</footer>
+<div class="modal-overlay" id="modal-signup">
+  <div class="modal"><div class="modal-header"><div class="modal-title">Join EduNova Free 🎓</div><button class="modal-close">✕</button></div>
+    <form><div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-control" placeholder="Your full name" required /></div><div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@example.com" required /></div><div class="form-group"><label class="form-label">Password</label><input type="password" class="form-control" placeholder="Create a password" required /></div><button type="submit" class="btn btn-primary btn-full btn-lg">Create My Free Account</button></form>
+  </div>
+</div>
+<button class="scroll-top">↑</button>
+<div class="toast-container"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

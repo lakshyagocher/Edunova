@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduNova – Learn. Explore. Excel.</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">🎓</div>
+    <span class="nav-logo-text">Edu<span>Nova</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/subjects.html">Subjects</a></li>
+    <li><a href="pages/doubts.html">Doubts</a></li>
+    <li><a href="pages/notes.html">Notes</a></li>
+    <li><a href="pages/blog.html">Blog</a></li>
+    <li><a href="pages/team.html">Team</a></li>
+    <li><a href="pages/pricing.html">Pricing</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary" data-modal="modal-signup">Join Free</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="pages/about.html">ℹ️ About</a>
+  <a href="pages/subjects.html">📚 Subjects</a>
+  <a href="pages/doubts.html">❓ Doubts</a>
+  <a href="pages/notes.html">📝 Notes</a>
+  <a href="pages/blog.html">📰 Blog</a>
+  <a href="pages/team.html">👥 Team</a>
+  <a href="pages/pricing.html">💎 Pricing</a>
+  <a href="pages/contact.html">📬 Contact</a>
+  <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.75rem;">
+    <a href="#" class="btn btn-ghost btn-full">Login</a>
+    <a href="#" class="btn btn-primary btn-full" data-modal="modal-signup">Join Free</a>
+  </div>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">✨ India's Most Elegant EdTech Platform</div>
+      <h1>
+        Learn Smarter.<br>
+        Grow <em>Faster.</em><br>
+        Excel Always.
+      </h1>
+      <p>
+        NCERT notes, chapter summaries, solved questions, and a live doubt-solving community — all in one beautifully crafted platform.
+      </p>
+      <div class="hero-btns">
+        <a href="pages/subjects.html" class="btn btn-primary btn-lg">Explore Subjects →</a>
+        <a href="pages/doubts.html" class="btn btn-ghost btn-lg">Ask a Doubt</a>
+      </div>
+      <div class="hero-stats" data-count-group>
+        <div>
+          <div class="hero-stat-value" data-count="12000" data-suffix="+">12,000+</div>
+          <div class="hero-stat-label">Students</div>
+        </div>
+        <div>
+          <div class="hero-stat-value" data-count="850" data-suffix="+">850+</div>
+          <div class="hero-stat-label">Notes Available</div>
+        </div>
+        <div>
+          <div class="hero-stat-value" data-count="3400" data-suffix="+">3,400+</div>
+          <div class="hero-stat-label">Doubts Solved</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <!-- Main Card -->
+        <div class="floating-card card-main">
+          <div class="card-title">📚 Today's Featured Note</div>
+          <div class="card-subject">Chapter 3: Coordinate Geometry</div>
+          <div class="card-class-tag">Class 10 · Mathematics</div>
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:72%"></div>
+          </div>
+          <div class="card-stat-row">
+            <span>72% complete</span>
+            <span>⭐ 4.9 (240 reviews)</span>
+          </div>
+          <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+            <span class="card-tag tag-blue">PDF Notes</span>
+            <span class="card-tag tag-gold">NCERT</span>
+            <span class="card-tag tag-purple">Solved MCQs</span>
+          </div>
+        </div>
+
+        <!-- Small card top right -->
+        <div class="floating-card card-sm-1">
+          <div class="card-icon">🔥</div>
+          <div class="card-mini-label">Today's Doubts</div>
+          <div class="card-mini-value">47 solved</div>
+        </div>
+
+        <!-- Small card bottom left -->
+        <div class="floating-card card-sm-2">
+          <div class="card-icon">🏆</div>
+          <div class="card-mini-label">Top Solver</div>
+          <div class="card-mini-value">Aryan K.</div>
+          <div class="card-mini-label">89 answers this week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div>
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Everything You Need to <em>Excel</em></h2>
+        <p class="section-subtitle">From NCERT notes to doubt solving — EduNova is your all-in-one academic companion.</p>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card fade-in" style="transition-delay:0.1s">
+        <div class="card-icon-wrap blue">📘</div>
+        <h3>NCERT Chapter Notes</h3>
+        <p>Beautifully summarized chapter notes for every subject across Class 6–12. Download as PDF or read online.</p>
+      </div>
+      <div class="feature-card fade-in" style="transition-delay:0.2s">
+        <div class="card-icon-wrap gold">🙋</div>
+        <h3>Doubt Solving Community</h3>
+        <p>Ask your doubts via text or photo upload. Get answers from our expert educators or fellow students.</p>
+      </div>
+      <div class="feature-card fade-in" style="transition-delay:0.3s">
+        <div class="card-icon-wrap purple">📝</div>
+        <h3>Solved Question Banks</h3>
+        <p>Thousands of solved questions from NCERT exercises, PYQs, and practice sets — with step-by-step solutions.</p>
+      </div>
+      <div class="feature-card fade-in" style="transition-delay:0.1s">
+        <div class="card-icon-wrap green">🎯</div>
+        <h3>Class-wise Resources</h3>
+        <p>Everything organized by class and board — CBSE, ICSE, State boards — so you find exactly what you need fast.</p>
+      </div>
+      <div class="feature-card fade-in" style="transition-delay:0.2s">
+        <div class="card-icon-wrap red">🖼️</div>
+        <h3>Photo Upload Support</h3>
+        <p>Snap a photo of your doubt or handwritten solution and upload it directly — no typing needed.</p>
+      </div>
+      <div class="feature-card fade-in" style="transition-delay:0.3s">
+        <div class="card-icon-wrap cyan">💬</div>
+        <h3>Comments & Feedback</h3>
+        <p>A transparent public comment system so students can rate, discuss, and improve each answer together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ RECENT DOUBTS ══════════════ -->
+<section class="section" style="background: var(--bg-secondary); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div>
+        <div class="section-label">Live Community</div>
+        <h2 class="section-title">Recent <em>Doubts</em></h2>
+        <p class="section-subtitle">See what students are asking and solving right now.</p>
+      </div>
+      <a href="pages/doubts.html" class="btn btn-ghost">View All →</a>
+    </div>
+
+    <div class="fade-in">
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar">RS</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Riya Sharma <span class="card-tag tag-blue" style="margin-left:0.5rem">Class 10</span></div>
+            <div class="doubt-time">2 hours ago · <span class="doubt-subject">📐 Mathematics</span></div>
+          </div>
+          <span class="solved-badge">✓ Solved</span>
+        </div>
+        <div class="doubt-q">I'm confused about the section formula. If A(2,3) and B(6,7) are two points and P divides AB in ratio 1:3 internally, how do I find P's coordinates?</div>
+        <div class="doubt-footer">
+          <span>💬 4 answers</span>
+          <span>👁️ 130 views</span>
+          <a class="doubt-btn" href="pages/doubts.html">View Solution</a>
+        </div>
+      </div>
+
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar" style="background:linear-gradient(135deg,#f6c90e,#f97316); color:#1a1000;">AK</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Arjun Kapoor <span class="card-tag tag-purple" style="margin-left:0.5rem">Class 12</span></div>
+            <div class="doubt-time">5 hours ago · <span class="doubt-subject">⚗️ Chemistry</span></div>
+          </div>
+        </div>
+        <div class="doubt-q">What is the difference between SN1 and SN2 reactions? Can someone explain with a simple example from NCERT?</div>
+        <div class="doubt-footer">
+          <span>💬 2 answers</span>
+          <span>👁️ 88 views</span>
+          <a class="doubt-btn" href="pages/doubts.html">Answer this</a>
+        </div>
+      </div>
+
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar" style="background:linear-gradient(135deg,#48bb78,#38a169)">PM</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Priya Mehta <span class="card-tag tag-green" style="margin-left:0.5rem">Class 8</span></div>
+            <div class="doubt-time">1 day ago · <span class="doubt-subject">🔬 Science</span></div>
+          </div>
+          <span class="solved-badge">✓ Solved</span>
+        </div>
+        <div class="doubt-q">What is the difference between physical and chemical changes? Please explain with daily life examples.</div>
+        <div class="doubt-footer">
+          <span>💬 6 answers</span>
+          <span>👁️ 210 views</span>
+          <a class="doubt-btn" href="pages/doubts.html">View Solution</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="pages/doubts.html" class="btn btn-primary btn-lg" data-modal="modal-doubt">Ask Your Doubt ✏️</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SUBJECTS PREVIEW ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div>
+        <div class="section-label">Explore</div>
+        <h2 class="section-title">Browse by <em>Subject</em></h2>
+        <p class="section-subtitle">NCERT-aligned notes, questions, and resources for every major subject.</p>
+      </div>
+      <a href="pages/subjects.html" class="btn btn-ghost">All Subjects →</a>
+    </div>
+
+    <div class="cards-grid fade-in">
+      <a href="pages/subjects.html#math" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap blue">📐</div>
+        <h3>Mathematics</h3>
+        <p>Algebra, Geometry, Trigonometry, Calculus — with step-by-step solved examples.</p>
+        <div class="card-meta">
+          <span>📖 180 Notes</span>
+          <span>✅ 950 Solved Qs</span>
+        </div>
+      </a>
+      <a href="pages/subjects.html#science" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap green">🔬</div>
+        <h3>Science</h3>
+        <p>Physics, Chemistry, Biology — all chapters summarized with diagrams and experiments.</p>
+        <div class="card-meta">
+          <span>📖 220 Notes</span>
+          <span>✅ 1100 Solved Qs</span>
+        </div>
+      </a>
+      <a href="pages/subjects.html#english" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap purple">📚</div>
+        <h3>English</h3>
+        <p>Literature summaries, grammar explanations, essay guides, and comprehension practice.</p>
+        <div class="card-meta">
+          <span>📖 120 Notes</span>
+          <span>✅ 560 Solved Qs</span>
+        </div>
+      </a>
+      <a href="pages/subjects.html#sst" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap gold">🗺️</div>
+        <h3>Social Studies</h3>
+        <p>History, Geography, Civics, and Economics — well-explained with maps and timelines.</p>
+        <div class="card-meta">
+          <span>📖 160 Notes</span>
+          <span>✅ 720 Solved Qs</span>
+        </div>
+      </a>
+      <a href="pages/subjects.html#hindi" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap red">🖋️</div>
+        <h3>Hindi</h3>
+        <p>Prose, poetry, grammar, and writing guides for Kshitij, Sparsh, and other textbooks.</p>
+        <div class="card-meta">
+          <span>📖 90 Notes</span>
+          <span>✅ 380 Solved Qs</span>
+        </div>
+      </a>
+      <a href="pages/subjects.html#computer" class="card" style="text-decoration:none; color:inherit;">
+        <div class="card-icon-wrap cyan">💻</div>
+        <h3>Computer Science</h3>
+        <p>Python, algorithms, data structures, and theory — explained simply for Class 11 & 12.</p>
+        <div class="card-meta">
+          <span>📖 70 Notes</span>
+          <span>✅ 300 Solved Qs</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section class="section" style="background: var(--bg-secondary); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div>
+        <div class="section-label">Student Reviews</div>
+        <h2 class="section-title">What Students <em>Say</em></h2>
+      </div>
+    </div>
+    <div class="cards-grid fade-in">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">EduNova changed how I study! The notes are super clear and the doubt section is incredibly helpful. I got my doubts answered within hours!</p>
+        <div class="testimonial-author">
+          <div class="avatar">NK</div>
+          <div>
+            <div style="font-weight:600">Nisha Kumar</div>
+            <div style="font-size:0.8rem; color:var(--text-muted)">Class 10 · Delhi</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The chapter summaries are gold! I used EduNova before my board exams and my score jumped 18 marks. Highly recommend!</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">RV</div>
+          <div>
+            <div style="font-weight:600">Rahul Verma</div>
+            <div style="font-size:0.8rem; color:var(--text-muted)">Class 12 · Mumbai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★☆</div>
+        <p class="testimonial-text">I love that I can upload a photo of my handwritten doubt. The teachers and other students give really detailed answers. Amazing community!</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#48bb78,#38a169)">SP</div>
+          <div>
+            <div style="font-weight:600">Sanya Patel</div>
+            <div style="font-size:0.8rem; color:var(--text-muted)">Class 9 · Ahmedabad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; max-width:600px; margin:0 auto;">
+      <div class="section-label">Get Started Today</div>
+      <h2 class="section-title">Ready to <em>Transform</em> Your Learning?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2rem;">Join over 12,000 students who are already acing their exams with EduNova. Free to join, forever.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="#" class="btn btn-gold btn-lg" data-modal="modal-signup">Start Free Today 🚀</a>
+        <a href="pages/pricing.html" class="btn btn-ghost btn-lg">See Plans</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+        <div class="nav-logo-icon">🎓</div>
+        <span class="nav-logo-text">Edu<span>Nova</span></span>
+      </a>
+      <p>India's most elegant education platform. NCERT notes, doubt solving, and a community that grows together.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="pages/subjects.html">All Subjects</a></li>
+        <li><a href="pages/notes.html">Chapter Notes</a></li>
+        <li><a href="pages/subjects.html">NCERT Solutions</a></li>
+        <li><a href="pages/doubts.html">Doubt Forum</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/team.html">Our Team</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="pages/pricing.html">Pricing</a></li>
+        <li><a href="pages/contact.html">Help Center</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 EduNova. Made with 💙 for Indian Students.</span>
+    <span>Built with passion by the EduNova Team.</span>
+  </div>
+</footer>
+
+<!-- ══════════════ MODALS ══════════════ -->
+<!-- Sign Up Modal -->
+<div class="modal-overlay" id="modal-signup">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Join EduNova Free 🎓</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <form>
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Class</label>
+        <select class="form-control form-select">
+          <option value="">Select your class</option>
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+          <option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" placeholder="Create a password" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full btn-lg">Create My Free Account</button>
+    </form>
+    <p style="text-align:center; margin-top:1rem; font-size:0.84rem; color:var(--text-muted)">
+      Already have an account? <a href="#" style="color:var(--accent)">Login here</a>
+    </p>
+  </div>
+</div>
+
+<!-- Ask Doubt Modal -->
+<div class="modal-overlay" id="modal-doubt">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Ask a Doubt 🙋</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <form>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <select class="form-control form-select" required>
+          <option value="">Select Subject</option>
+          <option>Mathematics</option><option>Physics</option><option>Chemistry</option>
+          <option>Biology</option><option>English</option><option>Hindi</option>
+          <option>Social Studies</option><option>Computer Science</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Class</label>
+        <select class="form-control form-select" required>
+          <option value="">Select Class</option>
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+          <option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Doubt</label>
+        <textarea class="form-control" placeholder="Describe your doubt in detail..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Attach Photo (optional)</label>
+        <label class="file-upload">
+          <div class="file-upload-icon">📷</div>
+          <p>Click or drag a photo of your doubt here</p>
+          <input type="file" accept="image/*" />
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Submit Doubt</button>
+    </form>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" title="Scroll to top">↑</button>
+<div class="toast-container"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

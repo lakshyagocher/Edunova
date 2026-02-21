@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subjects – EduNova</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-icon">🎓</div>
+    <span class="nav-logo-text">Edu<span>Nova</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="subjects.html" class="active">Subjects</a></li>
+    <li><a href="doubts.html">Doubts</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary" data-modal="modal-signup">Join Free</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">🏠 Home</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="subjects.html">📚 Subjects</a>
+  <a href="doubts.html">❓ Doubts</a>
+  <a href="notes.html">📝 Notes</a>
+  <a href="blog.html">📰 Blog</a>
+  <a href="team.html">👥 Team</a>
+  <a href="pricing.html">💎 Pricing</a>
+  <a href="contact.html">📬 Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb" style="justify-content:center"><a href="../index.html">Home</a> <span>›</span> <span class="current">Subjects</span></div>
+  <div class="section-label">NCERT & More</div>
+  <h1 class="section-title">Browse by <em>Subject & Class</em></h1>
+  <p class="section-subtitle" style="text-align:center; margin:0 auto 2rem">All classes, all boards. Click a class to see chapters, notes, and solved questions.</p>
+  <div class="search-bar" style="margin:0 auto; max-width:480px">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Search subjects, chapters…" oninput="filterSubjects(this.value)" />
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <!-- Class Tabs -->
+    <div class="tabs" id="classTabs">
+      <button class="tab-btn active" data-class="6">Class 6</button>
+      <button class="tab-btn" data-class="7">Class 7</button>
+      <button class="tab-btn" data-class="8">Class 8</button>
+      <button class="tab-btn" data-class="9">Class 9</button>
+      <button class="tab-btn" data-class="10">Class 10</button>
+      <button class="tab-btn" data-class="11">Class 11</button>
+      <button class="tab-btn" data-class="12">Class 12</button>
+    </div>
+
+    <!-- Class 6-9 content -->
+    <div id="class-content" class="fade-in">
+      <div id="subjects-grid">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notes Modal -->
+<div class="modal-overlay" id="modal-notes">
+  <div class="modal" style="max-width:640px">
+    <div class="modal-header">
+      <div class="modal-title" id="notes-modal-title">Chapter Chapters</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <div id="notes-modal-content"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-signup">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Join EduNova Free 🎓</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <form>
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-control" placeholder="Your full name" required /></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@example.com" required /></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-control" placeholder="Create a password" required /></div>
+      <button type="submit" class="btn btn-primary btn-full btn-lg">Create My Free Account</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about"><a href="../index.html" class="nav-logo" style="justify-content:flex-start;"><div class="nav-logo-icon">🎓</div><span class="nav-logo-text">Edu<span>Nova</span></span></a><p>India's elegant education platform.</p></div>
+    <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a href="subjects.html">All Subjects</a></li><li><a href="notes.html">Notes</a></li><li><a href="doubts.html">Doubts</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Support</div><ul class="footer-links"><li><a href="pricing.html">Pricing</a></li><li><a href="#">Privacy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 EduNova.</span></div>
+</footer>
+
+<button class="scroll-top">↑</button>
+<div class="toast-container"></div>
+<script src="../js/main.js"></script>
+<script>
+const DATA = {
+  6: [
+    { icon:'📐', name:'Mathematics', chapters:['Knowing Our Numbers','Whole Numbers','Playing with Numbers','Basic Geometrical Ideas','Understanding Elementary Shapes','Integers','Fractions','Decimals','Data Handling','Mensuration','Algebra','Ratio & Proportion'] },
+    { icon:'🔬', name:'Science', chapters:['Food: Where Does It Come From?','Components of Food','Fibre to Fabric','Sorting Materials','Separation of Substances','Changes Around Us','Getting to Know Plants','Body Movements','Living Organisms','Motion and Measurement','Light, Shadows','Electricity and Circuits'] },
+    { icon:'🗺️', name:'Social Studies', chapters:['What, Where, How, When?','On the Trail of Earliest People','From Gathering to Growing Food','In the Earliest Cities','Kingdoms, Kings and an Early Republic','New Questions and Ideas','Ashoka the Great','Vital Villages'] },
+    { icon:'📚', name:'English', chapters:['A Tale of Two Birds','The Friendly Mongoose','The Shepherd\'s Treasure','Tansen','The Monkey and the Crocodile','Vocation','Beauty','The Wonderful Words'] },
+    { icon:'🖋️', name:'Hindi', chapters:['वह चिड़िया जो','बचपन','नादान दोस्त','चाँद से थोड़ी-सी गुफ्तगू','अक्षरों का महत्व','पार नज़र के','साथी हाथ बढ़ाना','ऐसे – ऐसे'] },
+  ],
+  7: [
+    { icon:'📐', name:'Mathematics', chapters:['Integers','Fractions & Decimals','Data Handling','Simple Equations','Lines and Angles','Triangle & Properties','Congruence of Triangles','Comparing Quantities','Rational Numbers','Practical Geometry','Perimeter & Area','Algebraic Expressions','Exponents & Powers'] },
+    { icon:'🔬', name:'Science', chapters:['Nutrition in Plants','Nutrition in Animals','Fibre to Fabric','Heat','Acids, Bases and Salts','Physical & Chemical Changes','Weather, Climate & Adaptations','Winds, Storms & Cyclones','Soil','Respiration in Organisms','Transportation in Animals & Plants','Reproduction in Plants','Motion and Time'] },
+    { icon:'🗺️', name:'Social Studies', chapters:['Tracing Changes Through 1000 Years','New Kings and Kingdoms','The Delhi Sultans','The Mughal Empire','Rulers and Buildings','Towns, Traders & Craftspersons','Tribes, Nomads & Settled Communities','Devotional Paths to the Divine'] },
+    { icon:'📚', name:'English', chapters:['Three Questions','A Gift of Chappals','Gopal and the Hilsa Fish','The Ashes That Made Trees Bloom','Quality','Expert Detectives','The Invention of Vita-Wonk','Fire: Friend and Foe'] },
+  ],
+  8: [
+    { icon:'📐', name:'Mathematics', chapters:['Rational Numbers','Linear Equations in One Variable','Understanding Quadrilaterals','Practical Geometry','Data Handling','Squares & Square Roots','Cubes & Cube Roots','Comparing Quantities','Algebraic Expressions & Identities','Visualizing Solid Shapes','Mensuration','Exponents & Powers','Direct & Inverse Proportions','Factorization'] },
+    { icon:'🔬', name:'Science', chapters:['Crop Production & Management','Microorganisms','Synthetic Fibres & Plastics','Materials: Metals & Non-metals','Coal & Petroleum','Combustion & Flame','Conservation of Plants & Animals','Cell Structure & Functions','Reproduction in Animals','Reaching Age of Adolescence','Force & Pressure','Friction','Sound','Chemical Effects of Electric Current'] },
+    { icon:'🗺️', name:'Social Studies', chapters:['How, When and Where','From Trade to Territory','Ruling the Countryside','Tribals, Dikus and the Vision of a Golden Age','When People Rebel','Weavers, Iron Smelters and Factory Owners','Civilising the "Native" – Educating the Nation','Women, Caste and Reform'] },
+  ],
+  9: [
+    { icon:'📐', name:'Mathematics', chapters:['Number Systems','Polynomials','Coordinate Geometry','Linear Equations in Two Variables','Introduction to Euclid\'s Geometry','Lines & Angles','Triangles','Quadrilaterals','Areas of Parallelograms & Triangles','Circles','Constructions','Heron\'s Formula','Surface Areas & Volumes','Statistics','Probability'] },
+    { icon:'⚡', name:'Physics', chapters:['Motion','Force & Laws of Motion','Gravitation','Work & Energy','Sound'] },
+    { icon:'⚗️', name:'Chemistry', chapters:['Matter in Our Surroundings','Is Matter Around Us Pure?','Atoms & Molecules','Structure of the Atom'] },
+    { icon:'🧬', name:'Biology', chapters:['The Fundamental Unit of Life','Tissues','Diversity in Living Organisms','Why Do We Fall Ill?','Natural Resources','Improvement in Food Resources'] },
+    { icon:'📚', name:'English', chapters:['The Fun They Had','The Sound of Music','The Little Girl','A Truly Beautiful Mind','The Snake and the Mirror','My Childhood','Packing','Reach for the Top','The Bond of Love','Kathmandu'] },
+  ],
+  10: [
+    { icon:'📐', name:'Mathematics', chapters:['Real Numbers','Polynomials','Pair of Linear Equations','Quadratic Equations','Arithmetic Progressions','Triangles','Coordinate Geometry','Introduction to Trigonometry','Some Applications of Trigonometry','Circles','Constructions','Areas Related to Circles','Surface Areas & Volumes','Statistics','Probability'] },
+    { icon:'⚡', name:'Physics', chapters:['Light – Reflection & Refraction','Human Eye & Colourful World','Electricity','Magnetic Effects of Electric Current','Our Environment'] },
+    { icon:'⚗️', name:'Chemistry', chapters:['Chemical Reactions & Equations','Acids, Bases & Salts','Metals & Non-metals','Carbon & its Compounds','Periodic Classification of Elements'] },
+    { icon:'🧬', name:'Biology', chapters:['Life Processes','Control & Coordination','How Do Organisms Reproduce?','Heredity & Evolution','Our Environment','Natural Resource Management'] },
+    { icon:'📚', name:'English', chapters:['A Letter to God','Nelson Mandela','Two Stories about Flying','From the Diary of Anne Frank','Glimpses of India','Mijbil the Otter','Madam Rides the Bus','The Sermon at Benares','The Proposal'] },
+  ],
+  11: [
+    { icon:'📐', name:'Mathematics', chapters:['Sets','Relations & Functions','Trigonometric Functions','Principle of Mathematical Induction','Complex Numbers','Linear Inequalities','Permutations & Combinations','Binomial Theorem','Sequences & Series','Straight Lines','Conic Sections','3D Geometry','Limits & Derivatives','Mathematical Reasoning','Statistics','Probability'] },
+    { icon:'⚡', name:'Physics', chapters:['Physical World','Units & Measurement','Motion in a Straight Line','Motion in a Plane','Laws of Motion','Work, Energy & Power','System of Particles & Rotational Motion','Gravitation','Mechanical Properties of Solids','Mechanical Properties of Fluids','Thermal Properties of Matter','Thermodynamics','Kinetic Theory','Oscillations','Waves'] },
+    { icon:'⚗️', name:'Chemistry', chapters:['Some Basic Concepts','Structure of Atom','Classification of Elements','Chemical Bonding','States of Matter','Thermodynamics','Equilibrium','Redox Reactions','Hydrogen','s-Block Elements','p-Block Elements','Organic Chemistry','Hydrocarbons','Environmental Chemistry'] },
+    { icon:'🧬', name:'Biology', chapters:['The Living World','Biological Classification','Plant Kingdom','Animal Kingdom','Morphology of Flowering Plants','Anatomy of Flowering Plants','Structural Organisation in Animals','Cell: The Unit of Life','Biomolecules','Cell Cycle & Division','Transport in Plants','Mineral Nutrition','Photosynthesis','Respiration in Plants','Plant Growth & Development'] },
+    { icon:'💻', name:'Computer Science', chapters:['Computer Overview','Python Fundamentals','Data Types','Control Statements','Functions','Strings','Lists','Tuples & Dictionaries','Sorting Algorithms','Complexity Analysis'] },
+  ],
+  12: [
+    { icon:'📐', name:'Mathematics', chapters:['Relations & Functions','Inverse Trigonometric Functions','Matrices','Determinants','Continuity & Differentiability','Application of Derivatives','Integrals','Application of Integrals','Differential Equations','Vector Algebra','3D Geometry','Linear Programming','Probability'] },
+    { icon:'⚡', name:'Physics', chapters:['Electric Charges & Fields','Electrostatic Potential & Capacitance','Current Electricity','Moving Charges & Magnetism','Magnetism & Matter','Electromagnetic Induction','Alternating Current','EM Waves','Ray Optics','Wave Optics','Dual Nature of Radiation','Atoms','Nuclei','Semiconductor Electronics','Communication Systems'] },
+    { icon:'⚗️', name:'Chemistry', chapters:['Solid State','Solutions','Electrochemistry','Chemical Kinetics','Surface Chemistry','General Principles of Isolation','p-Block Elements (Period 3)','d & f-Block Elements','Coordination Compounds','Haloalkanes & Haloarenes','Alcohols, Phenols & Ethers','Aldehydes, Ketones & Carboxylic Acids','Amines','Biomolecules','Polymers','Chemistry in Everyday Life'] },
+    { icon:'🧬', name:'Biology', chapters:['Reproduction in Organisms','Sexual Reproduction in Flowering Plants','Human Reproduction','Reproductive Health','Principles of Inheritance','Molecular Basis of Inheritance','Evolution','Human Health & Disease','Strategies for Enhancement of Food Production','Microbes in Human Welfare','Biotechnology – Principles & Processes','Biotechnology & its Applications','Organisms & Populations','Ecosystem','Biodiversity & Conservation','Environmental Issues'] },
+    { icon:'💻', name:'Computer Science', chapters:['Python Revision','OOP Concepts','File Handling','Data Structures','Searching & Sorting','Database Management','SQL Basics','Networking Concepts','Web Development','Cybersecurity Basics'] },
+  ]
+};
+
+function renderSubjects(cls) {
+  const subjects = DATA[cls] || [];
+  const grid = document.getElementById('subjects-grid');
+  grid.innerHTML = `<div style="margin-bottom:1.5rem"><div class="section-label">Class ${cls} Resources</div><h2 class="section-title" style="margin-bottom:0.5rem">All <em>Subjects</em></h2><p style="color:var(--text-secondary);font-size:0.9rem">Click any subject to view chapters, notes, and solved questions.</p></div>
+  <div class="cards-grid">
+    ${subjects.map((s,i) => `
+      <div class="card" onclick="openSubject(${cls},${i})">
+        <div class="card-icon-wrap ${['blue','gold','purple','green','red','cyan'][i%6]}">${s.icon}</div>
+        <h3>${s.name}</h3>
+        <p>${s.chapters.length} chapters · Notes, MCQs & solutions available</p>
+        <div class="card-meta">
+          <span>📖 ${s.chapters.length * 3} Notes</span>
+          <span>✅ ${s.chapters.length * 18} Solved Qs</span>
+        </div>
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+function openSubject(cls, si) {
+  const s = DATA[cls][si];
+  document.getElementById('notes-modal-title').textContent = `${s.icon} ${s.name} – Class ${cls}`;
+  document.getElementById('notes-modal-content').innerHTML = `
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem">Click a chapter to view notes and solved questions.</p>
+    ${s.chapters.map((ch, i) => `
+      <div class="chapter-item" onclick="showToast('Opening: ${ch}', 'info')">
+        <div class="chapter-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="chapter-info">
+          <div class="chapter-name">${ch}</div>
+          <div class="chapter-meta">📝 Notes · ✅ Solved Qs · ❓ ${Math.floor(Math.random()*15)+2} Doubts</div>
+        </div>
+        <div class="chapter-actions">
+          <div class="icon-btn" title="Download PDF">⬇</div>
+          <div class="icon-btn" title="View Notes">👁</div>
+        </div>
+      </div>
+    `).join('')}`;
+  openModal('modal-notes');
+}
+
+// Class tab logic
+document.querySelectorAll('#classTabs .tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#classTabs .tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderSubjects(btn.dataset.class);
+  });
+});
+
+function filterSubjects(val) {
+  document.querySelectorAll('.card').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(val.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// initial render
+renderSubjects(6);
+</script>
+</body>
+</html>

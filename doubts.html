@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doubts – EduNova</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .doubt-answer {
+      margin-top: 0.75rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .answer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .owner-badge {
+      background: linear-gradient(135deg,#f6c90e,#f97316);
+      color: #1a1000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .answers-count {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .photo-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(167,139,250,0.12);
+      color: #a78bfa;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .filter-chip {
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--accent-soft);
+      border-color: var(--border-glow);
+      color: var(--accent);
+    }
+    .doubt-image {
+      margin-top: 0.75rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--text-muted);
+    }
+    .doubt-image p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+    .vote-btn {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: none;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .vote-btn:hover { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-icon">🎓</div>
+    <span class="nav-logo-text">Edu<span>Nova</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="subjects.html">Subjects</a></li>
+    <li><a href="doubts.html" class="active">Doubts</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary" data-modal="modal-doubt">Ask a Doubt</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">🏠 Home</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="subjects.html">📚 Subjects</a>
+  <a href="doubts.html">❓ Doubts</a>
+  <a href="notes.html">📝 Notes</a>
+  <a href="blog.html">📰 Blog</a>
+  <a href="team.html">👥 Team</a>
+  <a href="pricing.html">💎 Pricing</a>
+  <a href="contact.html">📬 Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb" style="justify-content:center"><a href="../index.html">Home</a> <span>›</span> <span class="current">Doubts</span></div>
+  <div class="section-label">Community Q&A</div>
+  <h1 class="section-title">Ask & Solve <em>Doubts</em></h1>
+  <p class="section-subtitle" style="text-align:center; margin:0 auto 2rem">Students ask, experts answer. Upload photos of your doubts. Everyone learns together.</p>
+  <button class="btn btn-primary btn-lg" data-modal="modal-doubt">+ Ask a New Doubt</button>
+</div>
+
+<section class="section">
+  <div class="container">
+    <!-- Filters & Search -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1.5rem; flex-wrap:wrap; margin-bottom:2rem;">
+      <div class="search-bar" style="flex:1; max-width:420px;">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search doubts…" oninput="filterDoubts(this.value)" />
+      </div>
+      <button class="btn btn-gold" data-modal="modal-doubt">📝 Post a Doubt</button>
+    </div>
+
+    <div class="filter-bar">
+      <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600">Filter:</span>
+      <div class="filter-chip active" onclick="filterByClass(this,'all')">All</div>
+      <div class="filter-chip" onclick="filterByClass(this,'unsolved')">Unsolved</div>
+      <div class="filter-chip" onclick="filterByClass(this,'solved')">Solved</div>
+      <div class="filter-chip" onclick="filterByClass(this,'photo')">📷 With Photo</div>
+      <div class="filter-chip" onclick="filterByClass(this,'math')">📐 Maths</div>
+      <div class="filter-chip" onclick="filterByClass(this,'science')">🔬 Science</div>
+      <div class="filter-chip" onclick="filterByClass(this,'english')">📚 English</div>
+      <div class="filter-chip" onclick="filterByClass(this,'sst')">🗺️ SST</div>
+    </div>
+
+    <!-- Doubt 1 -->
+    <div class="doubt-card" data-subject="math" data-solved="solved">
+      <div class="doubt-header">
+        <div class="avatar">RS</div>
+        <div class="doubt-meta">
+          <div class="doubt-user">Riya Sharma <span class="card-tag tag-blue" style="margin-left:.5rem">Class 10</span></div>
+          <div class="doubt-time">2 hours ago · <span class="doubt-subject">📐 Mathematics · Coordinate Geometry</span></div>
+        </div>
+        <span class="solved-badge">✓ Solved</span>
+      </div>
+      <div class="doubt-q">I'm confused about the section formula. If A(2,3) and B(6,7) are two points and P divides AB in ratio 1:3 internally, how do I find P's coordinates?</div>
+      <div class="doubt-footer" style="margin-bottom:0.75rem">
+        <span>💬 4 answers</span><span>👁️ 130 views</span>
+        <button class="vote-btn">👍 12</button>
+        <button class="answers-count" onclick="toggleAnswers('d1')">▼ View Answers</button>
+      </div>
+      <div id="d1" style="display:none">
+        <div class="doubt-answer">
+          <div class="answer-header">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.75rem">EN</div>
+            <div>
+              <strong>EduNova Expert</strong> <span class="owner-badge">Owner</span>
+            </div>
+          </div>
+          The Section Formula for internal division: P(x,y) = ((m₁x₂ + m₂x₁)/(m₁+m₂), (m₁y₂ + m₂y₁)/(m₁+m₂))<br/><br/>
+          Given A(2,3), B(6,7) and ratio 1:3:<br/>
+          x = (1×6 + 3×2)/(1+3) = (6+6)/4 = 12/4 = <strong>3</strong><br/>
+          y = (1×7 + 3×3)/(1+3) = (7+9)/4 = 16/4 = <strong>4</strong><br/><br/>
+          So P = <strong>(3, 4)</strong> ✅
+        </div>
+      </div>
+    </div>
+
+    <!-- Doubt 2 (with photo) -->
+    <div class="doubt-card" data-subject="science" data-solved="unsolved">
+      <div class="doubt-header">
+        <div class="avatar" style="background:linear-gradient(135deg,#f6c90e,#f97316);color:#1a1000">AK</div>
+        <div class="doubt-meta">
+          <div class="doubt-user">Arjun Kapoor <span class="card-tag tag-purple" style="margin-left:.5rem">Class 12</span> <span class="photo-badge">📷 Photo</span></div>
+          <div class="doubt-time">5 hours ago · <span class="doubt-subject">⚗️ Chemistry · Organic Chemistry</span></div>
+        </div>
+      </div>
+      <div class="doubt-q">What is the difference between SN1 and SN2 reactions? Can someone explain with a simple example? I've attached my textbook page for reference.</div>
+      <div class="doubt-image">📷<p>Uploaded image: textbook_page_SN1_SN2.jpg</p></div>
+      <div class="doubt-footer">
+        <span>💬 2 answers</span><span>👁️ 88 views</span>
+        <button class="vote-btn">👍 7</button>
+        <button class="doubt-btn" data-modal="modal-answer">Answer This</button>
+        <button class="answers-count" onclick="toggleAnswers('d2')">▼ View Answers</button>
+      </div>
+      <div id="d2" style="display:none">
+        <div class="doubt-answer">
+          <div class="answer-header">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.75rem;background:linear-gradient(135deg,#48bb78,#38a169)">SP</div>
+            <div><strong>Sanya Patel</strong> <span style="font-size:0.78rem; color:var(--text-muted)">Class 12 Student</span></div>
+          </div>
+          <strong>SN1</strong>: Two-step, carbocation intermediate, favours tertiary substrates, unimolecular (rate depends on substrate only).<br/>
+          <strong>SN2</strong>: One-step, inversion of configuration (Walden inversion), favours primary substrates, bimolecular (rate depends on both substrate and nucleophile).<br/><br/>
+          Quick memory tip: SN1 = Slow/Stable carbocation. SN2 = Speedy backside attack! ⚡
+        </div>
+      </div>
+    </div>
+
+    <!-- Doubt 3 -->
+    <div class="doubt-card" data-subject="math" data-solved="solved">
+      <div class="doubt-header">
+        <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">VG</div>
+        <div class="doubt-meta">
+          <div class="doubt-user">Vikram Gupta <span class="card-tag tag-gold" style="margin-left:.5rem">Class 11</span></div>
+          <div class="doubt-time">1 day ago · <span class="doubt-subject">📐 Mathematics · Limits</span></div>
+        </div>
+        <span class="solved-badge">✓ Solved</span>
+      </div>
+      <div class="doubt-q">How do I evaluate lim(x→0) [sin(x)/x]? I know the answer is 1 but I don't understand why. Can someone show me a proper proof?</div>
+      <div class="doubt-footer">
+        <span>💬 5 answers</span><span>👁️ 210 views</span>
+        <button class="vote-btn">👍 28</button>
+        <button class="answers-count" onclick="toggleAnswers('d3')">▼ View Answers</button>
+      </div>
+      <div id="d3" style="display:none">
+        <div class="doubt-answer">
+          <div class="answer-header">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.75rem">EN</div>
+            <div><strong>EduNova Expert</strong> <span class="owner-badge">Owner</span></div>
+          </div>
+          We use the <strong>Squeeze Theorem</strong> (Sandwich Theorem):<br/><br/>
+          For 0 &lt; x &lt; π/2, we can geometrically prove: cos(x) ≤ sin(x)/x ≤ 1<br/><br/>
+          Since lim(x→0) cos(x) = 1 and lim(x→0) 1 = 1,<br/>
+          By Squeeze Theorem: <strong>lim(x→0) sin(x)/x = 1</strong> ✅<br/><br/>
+          This is a standard limit you should memorize — it's used constantly in calculus!
+        </div>
+      </div>
+    </div>
+
+    <!-- Doubt 4 (with photo, unsolved) -->
+    <div class="doubt-card" data-subject="science" data-solved="unsolved">
+      <div class="doubt-header">
+        <div class="avatar" style="background:linear-gradient(135deg,#48bb78,#38a169)">PM</div>
+        <div class="doubt-meta">
+          <div class="doubt-user">Priya Mehta <span class="card-tag tag-green" style="margin-left:.5rem">Class 8</span> <span class="photo-badge">📷 Photo</span></div>
+          <div class="doubt-time">2 days ago · <span class="doubt-subject">🔬 Science · Cell Biology</span></div>
+        </div>
+      </div>
+      <div class="doubt-q">What is the difference between plant cell and animal cell? I made a diagram in my notebook (photo attached) — can someone check if it's correct?</div>
+      <div class="doubt-image">📷<p>Uploaded image: cell_diagram_priya.jpg</p></div>
+      <div class="doubt-footer">
+        <span>💬 0 answers</span><span>👁️ 45 views</span>
+        <button class="vote-btn">👍 3</button>
+        <button class="doubt-btn" data-modal="modal-answer">Be First to Answer!</button>
+      </div>
+    </div>
+
+    <!-- Doubt 5 -->
+    <div class="doubt-card" data-subject="english" data-solved="solved">
+      <div class="doubt-header">
+        <div class="avatar" style="background:linear-gradient(135deg,#63b3ed,#4299e1)">KT</div>
+        <div class="doubt-meta">
+          <div class="doubt-user">Kavya Tiwari <span class="card-tag tag-blue" style="margin-left:.5rem">Class 9</span></div>
+          <div class="doubt-time">3 days ago · <span class="doubt-subject">📚 English · Grammar</span></div>
+        </div>
+        <span class="solved-badge">✓ Solved</span>
+      </div>
+      <div class="doubt-q">What is the difference between "fewer" and "less"? I keep getting confused about when to use which one.</div>
+      <div class="doubt-footer">
+        <span>💬 3 answers</span><span>👁️ 156 views</span>
+        <button class="vote-btn">👍 15</button>
+        <button class="answers-count" onclick="toggleAnswers('d5')">▼ View Answers</button>
+      </div>
+      <div id="d5" style="display:none">
+        <div class="doubt-answer">
+          <div class="answer-header">
+            <div class="avatar" style="width:32px;height:32px;font-size:0.75rem">EN</div>
+            <div><strong>EduNova Expert</strong> <span class="owner-badge">Owner</span></div>
+          </div>
+          Simple rule: <strong>Fewer</strong> = countable nouns | <strong>Less</strong> = uncountable nouns<br/><br/>
+          Examples:<br/>
+          ✅ "I have <strong>fewer</strong> books" (books are countable)<br/>
+          ✅ "I have <strong>less</strong> water" (water is uncountable)<br/><br/>
+          Trick: If you can add a number before it (5 books, 3 students), use <strong>fewer</strong>. If you can't (5 waters ❌), use <strong>less</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem; color:var(--text-muted); font-size:0.88rem">
+      Showing 5 of 3,400+ doubts · <a href="#" style="color:var(--accent)">Load more</a>
+    </div>
+  </div>
+</section>
+
+<!-- Feedback/Comments Section -->
+<section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div>
+        <div class="section-label">Community</div>
+        <h2 class="section-title">Public <em>Feedback</em></h2>
+        <p class="section-subtitle">Open comments visible to everyone. Honest. Transparent. Community-driven.</p>
+      </div>
+    </div>
+    <div class="fade-in">
+      <!-- Comment form -->
+      <div class="doubt-card" style="margin-bottom:2rem">
+        <h3 style="margin-bottom:1rem; font-family:'Playfair Display',serif">Leave a Comment</h3>
+        <form onsubmit="submitComment(event)">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Share your thoughts, feedback, or experience with EduNova..." style="min-height:90px" required></textarea>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap">
+            <label class="file-upload" style="padding:0.6rem 1.2rem; display:inline-flex; align-items:center; gap:0.5rem; flex-direction:row; cursor:pointer; border-radius:8px;">
+              📷 <span style="font-size:0.85rem">Attach Photo</span>
+              <input type="file" accept="image/*" />
+            </label>
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Comments -->
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar">NK</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Nisha Kumar</div>
+            <div class="doubt-time">1 day ago · ⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="doubt-q">EduNova is absolutely fantastic! The way doubts are answered here is so clear and detailed. I've recommended it to my entire friend group. Keep it up!</div>
+        <div class="doubt-footer"><button class="vote-btn">👍 18</button></div>
+      </div>
+
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">RV</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Rahul Verma</div>
+            <div class="doubt-time">3 days ago · ⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="doubt-q">The owner personally answers doubts — that's what makes EduNova different! I asked a complex integration doubt and got a step-by-step answer within 2 hours. Incredible.</div>
+        <div class="doubt-footer"><button class="vote-btn">👍 24</button></div>
+      </div>
+
+      <div class="doubt-card">
+        <div class="doubt-header">
+          <div class="avatar" style="background:linear-gradient(135deg,#f6c90e,#f97316);color:#1a1000">MS</div>
+          <div class="doubt-meta">
+            <div class="doubt-user">Manav Singh</div>
+            <div class="doubt-time">5 days ago · ⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="doubt-q">Very helpful platform. Suggestion: Please add more Class 11 Physics resources — the current ones are great but more variety would be awesome!</div>
+        <div class="doubt-footer"><button class="vote-btn">👍 9</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <a href="../index.html" class="nav-logo" style="justify-content:flex-start;">
+        <div class="nav-logo-icon">🎓</div>
+        <span class="nav-logo-text">Edu<span>Nova</span></span>
+      </a>
+      <p>India's most elegant education platform.</p>
+    </div>
+    <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a href="subjects.html">All Subjects</a></li><li><a href="notes.html">Notes</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Support</div><ul class="footer-links"><li><a href="pricing.html">Pricing</a></li><li><a href="#">Privacy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 EduNova.</span></div>
+</footer>
+
+<!-- Ask Doubt Modal -->
+<div class="modal-overlay" id="modal-doubt">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Ask a Doubt 🙋</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <form>
+      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-control" placeholder="Full name" required /></div>
+      <div class="form-group"><label class="form-label">Subject</label>
+        <select class="form-control form-select" required>
+          <option value="">Select Subject</option>
+          <option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Hindi</option><option>Social Studies</option><option>Computer Science</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Class</label>
+        <select class="form-control form-select" required>
+          <option value="">Select Class</option>
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Your Doubt</label><textarea class="form-control" placeholder="Describe your doubt clearly..." required></textarea></div>
+      <div class="form-group"><label class="form-label">Upload Photo (optional)</label>
+        <label class="file-upload"><div class="file-upload-icon">📷</div><p>Click or drag a photo of your doubt</p><input type="file" accept="image/*" /></label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Submit Doubt</button>
+    </form>
+  </div>
+</div>
+
+<!-- Answer Modal -->
+<div class="modal-overlay" id="modal-answer">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Submit Your Answer 💡</div>
+      <button class="modal-close">✕</button>
+    </div>
+    <form>
+      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-control" placeholder="Full name" required /></div>
+      <div class="form-group"><label class="form-label">Your Answer</label><textarea class="form-control" style="min-height:150px" placeholder="Write a clear, step-by-step answer..." required></textarea></div>
+      <div class="form-group"><label class="form-label">Upload Solution Photo (optional)</label>
+        <label class="file-upload"><div class="file-upload-icon">📷</div><p>Upload a photo of your handwritten solution</p><input type="file" accept="image/*" /></label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Post Answer</button>
+    </form>
+  </div>
+</div>
+
+<button class="scroll-top">↑</button>
+<div class="toast-container"></div>
+
+<script src="../js/main.js"></script>
+<script>
+function toggleAnswers(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+function submitComment(e) {
+  e.preventDefault();
+  showToast('Comment posted successfully!', 'success');
+  e.target.reset();
+}
+function filterByClass(chip, filter) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  document.querySelectorAll('.doubt-card').forEach(card => {
+    if (filter === 'all') { card.style.display = ''; return; }
+    if (filter === 'solved' && card.dataset.solved === 'solved') { card.style.display = ''; return; }
+    if (filter === 'unsolved' && card.dataset.solved === 'unsolved') { card.style.display = ''; return; }
+    if (filter === 'photo' && card.querySelector('.doubt-image')) { card.style.display = ''; return; }
+    if (['math','science','english','sst'].includes(filter) && card.dataset.subject === filter) { card.style.display = ''; return; }
+    card.style.display = 'none';
+  });
+}
+function filterDoubts(val) {
+  document.querySelectorAll('.doubt-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(val.toLowerCase()) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

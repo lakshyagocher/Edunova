@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes – EduNova</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-icon">🎓</div>
+    <span class="nav-logo-text">Edu<span>Nova</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="subjects.html">Subjects</a></li>
+    <li><a href="doubts.html">Doubts</a></li>
+    <li><a href="notes.html" class="active">Notes</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn btn-ghost">Login</a>
+    <a href="#" class="btn btn-primary" data-modal="modal-signup">Join Free</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">🏠 Home</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="subjects.html">📚 Subjects</a>
+  <a href="doubts.html">❓ Doubts</a>
+  <a href="notes.html">📝 Notes</a>
+  <a href="blog.html">📰 Blog</a>
+  <a href="team.html">👥 Team</a>
+  <a href="pricing.html">💎 Pricing</a>
+  <a href="contact.html">📬 Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb" style="justify-content:center"><a href="../index.html">Home</a> <span>›</span> <span class="current">Notes</span></div>
+  <div class="section-label">Chapter Summaries</div>
+  <h1 class="section-title">Study <em>Notes & Summaries</em></h1>
+  <p class="section-subtitle" style="text-align:center; margin:0 auto 2rem">Concise, clear, and exam-ready notes for every chapter. Download as PDF or read online.</p>
+  <div class="search-bar" style="margin:0 auto; max-width:480px">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Search notes, chapters, topics…" oninput="searchNotes(this.value)" />
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <!-- Filter Tabs -->
+    <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; align-items:center">
+      <div class="tabs" style="border:none; margin:0; gap:0.5rem">
+        <button class="tab-btn active" onclick="filterNotes(this,'all')">All</button>
+        <button class="tab-btn" onclick="filterNotes(this,'10')">Class 10</button>
+        <button class="tab-btn" onclick="filterNotes(this,'11')">Class 11</button>
+        <button class="tab-btn" onclick="filterNotes(this,'12')">Class 12</button>
+        <button class="tab-btn" onclick="filterNotes(this,'math')">📐 Maths</button>
+        <button class="tab-btn" onclick="filterNotes(this,'science')">🔬 Science</button>
+      </div>
+      <div style="margin-left:auto; font-size:0.82rem; color:var(--text-muted)">Showing <strong id="noteCount" style="color:var(--accent)">9</strong> notes</div>
+    </div>
+
+    <div class="cards-grid" id="notesGrid">
+
+      <div class="card" data-class="10" data-subject="math">
+        <div class="card-icon-wrap blue">📐</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Quadratic Equations</h3>
+          <span class="card-tag tag-blue">Class 10</span>
+        </div>
+        <p>Complete summary of Ch.4 — factorization, completing the square, discriminant, and nature of roots. Includes solved examples.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.9</span>
+          <span>👁️ 2.1k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="12" data-subject="math">
+        <div class="card-icon-wrap purple">∫</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Integrals</h3>
+          <span class="card-tag tag-purple">Class 12</span>
+        </div>
+        <p>Comprehensive notes on Ch.7 — all standard forms, substitution, by-parts, partial fractions, definite integrals with properties.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 5.0</span>
+          <span>👁️ 4.5k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="10" data-subject="science">
+        <div class="card-icon-wrap green">⚡</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Electricity</h3>
+          <span class="card-tag tag-green">Class 10</span>
+        </div>
+        <p>Full chapter summary — Ohm's Law, resistance, resistors in series & parallel, power, Joule heating. With circuit diagrams.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.8</span>
+          <span>👁️ 3.2k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="11" data-subject="science">
+        <div class="card-icon-wrap gold">⚗️</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Thermodynamics</h3>
+          <span class="card-tag tag-gold">Class 11</span>
+        </div>
+        <p>System, surroundings, enthalpy, entropy, Gibbs energy — all key concepts explained with formulas and NCERT examples.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.7</span>
+          <span>👁️ 1.8k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="12" data-subject="science">
+        <div class="card-icon-wrap red">🧬</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Molecular Basis of Inheritance</h3>
+          <span class="card-tag tag-purple">Class 12</span>
+        </div>
+        <p>DNA structure, replication, transcription, translation, genetic code — all explained with clear diagrams and memory aids.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 5.0</span>
+          <span>👁️ 5.1k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="10" data-subject="math">
+        <div class="card-icon-wrap cyan">📊</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Statistics & Probability</h3>
+          <span class="card-tag tag-blue">Class 10</span>
+        </div>
+        <p>Mean, median, mode for grouped data — cumulative frequency, ogive, probability basics with solved examples and tricks.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.6</span>
+          <span>👁️ 2.9k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="11" data-subject="math">
+        <div class="card-icon-wrap blue">📐</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Limits & Derivatives</h3>
+          <span class="card-tag tag-blue">Class 11</span>
+        </div>
+        <p>First principles, standard limits, rules of differentiation, derivatives of trig, polynomial, and exponential functions.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.9</span>
+          <span>👁️ 3.7k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="10" data-subject="science">
+        <div class="card-icon-wrap purple">💡</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Light – Reflection & Refraction</h3>
+          <span class="card-tag tag-green">Class 10</span>
+        </div>
+        <p>Laws of reflection, spherical mirrors, mirror formula, refraction, Snell's law, lens formula — with ray diagrams.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.8</span>
+          <span>👁️ 4.0k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="card" data-class="12" data-subject="science">
+        <div class="card-icon-wrap gold">⚗️</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem">
+          <h3 style="margin:0">Electrochemistry</h3>
+          <span class="card-tag tag-purple">Class 12</span>
+        </div>
+        <p>Electrochemical cells, Nernst equation, standard reduction potentials, electrolysis, Faraday's laws — with solved numericals.</p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem">
+          <span class="card-tag tag-gold">NCERT</span>
+          <span class="card-tag tag-green">PDF Ready</span>
+        </div>
+        <div class="card-meta">
+          <span>⭐ 4.7</span>
+          <span>👁️ 2.4k views</span>
+          <button class="doubt-btn" onclick="showToast('Downloading PDF…', 'info')">⬇ Download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem; color:var(--text-muted); font-size:0.88rem">
+      Showing 9 of 850+ notes · <a href="#" style="color:var(--accent)" onclick="showToast('Loading more notes…','info')">Load more</a>
+    </div>
+  </div>
+</section>
+
+<!-- Upload Notes CTA -->
+<section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border)">
+  <div class="container fade-in" style="max-width:640px">
+    <div class="section-label">Contribute</div>
+    <h2 class="section-title">Upload Your Own <em>Notes</em></h2>
+    <p class="section-subtitle" style="margin-bottom:2rem">Help the community! Upload your notes and earn recognition as a top contributor.</p>
+    <div class="card">
+      <form>
+        <div class="form-group"><label class="form-label">Note Title</label><input type="text" class="form-control" placeholder="e.g. Chapter 5 – Arithmetic Progressions Summary" /></div>
+        <div class="form-group">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+            <div><label class="form-label">Subject</label><select class="form-control form-select"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Hindi</option><option>Social Studies</option></select></div>
+            <div><label class="form-label">Class</label><select class="form-control form-select"><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload File (PDF / Image)</label>
+          <label class="file-upload"><div class="file-upload-icon">📄</div><p>Drop PDF or image file here · Max 10MB</p><input type="file" accept=".pdf,image/*" /></label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Submit Notes for Review</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about"><a href="../index.html" class="nav-logo" style="justify-content:flex-start;"><div class="nav-logo-icon">🎓</div><span class="nav-logo-text">Edu<span>Nova</span></span></a><p>India's elegant education platform.</p></div>
+    <div><div class="footer-col-title">Learn</div><ul class="footer-links"><li><a href="subjects.html">All Subjects</a></li><li><a href="notes.html">Notes</a></li><li><a href="doubts.html">Doubts</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Support</div><ul class="footer-links"><li><a href="pricing.html">Pricing</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 EduNova.</span></div>
+</footer>
+
+<div class="modal-overlay" id="modal-signup">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Join EduNova Free 🎓</div><button class="modal-close">✕</button></div>
+    <form>
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-control" placeholder="Your full name" required /></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@example.com" required /></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-control" placeholder="Create a password" required /></div>
+      <button type="submit" class="btn btn-primary btn-full btn-lg">Create My Free Account</button>
+    </form>
+  </div>
+</div>
+
+<button class="scroll-top">↑</button>
+<div class="toast-container"></div>
+<script src="../js/main.js"></script>
+<script>
+function filterNotes(btn, filter) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('#notesGrid .card');
+  let count = 0;
+  cards.forEach(card => {
+    const cls = card.dataset.class;
+    const sub = card.dataset.subject;
+    let show = false;
+    if(filter === 'all') show = true;
+    else if(['10','11','12'].includes(filter)) show = cls === filter;
+    else if(filter === 'math') show = sub === 'math';
+    else if(filter === 'science') show = sub === 'science';
+    card.style.display = show ? '' : 'none';
+    if(show) count++;
+  });
+  document.getElementById('noteCount').textContent = count;
+}
+function searchNotes(val) {
+  const cards = document.querySelectorAll('#notesGrid .card');
+  let count = 0;
+  cards.forEach(card => {
+    const show = card.textContent.toLowerCase().includes(val.toLowerCase());
+    card.style.display = show ? '' : 'none';
+    if(show) count++;
+  });
+  document.getElementById('noteCount').textContent = count;
+}
+</script>
+</body>
+</html>
